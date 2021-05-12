@@ -1,0 +1,33 @@
+{% extends 'main/base.html' %}
+
+{% block title %} Добавить рецепт {% endblock %}
+{% block content %}
+    <h1>Добавить рецепт</h1>
+    <form method="post">
+        {% csrf_token %}
+
+
+        <div class="mb-3">
+            <label class="form-label">Название рецепта</label>
+            {{ form.name }}
+        </div>
+        <div class="mb-3">
+            <label for="formFileMultiple" class="form-label">Введите URL картинки</label>
+            {{ form.photo }}
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Описание</label>
+            {{ form.description }}
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Состав</label>
+            {{ form.composition }}
+        </div>
+        <div class="mb-3">
+            <label class="form-label">Приготовление</label>
+            {{ form.method }}
+        </div>
+        <button type="submit" class="btn btn-primary">Добавить</button>
+        <span>{{ errror }}</span>
+    </form>
+{% endblock %}

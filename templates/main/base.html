@@ -14,28 +14,29 @@
 </head>
 
 <body>
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #fddca5">
+<nav class="navbar navbar-expand-lg navbar-light sticky-top" style="background-color: #fddca5; margin-bottom: 20px;" fixed>
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
                 aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <a class="navbar-brand" href="#">Книга рецептов</a>
+            <a class="navbar-brand" href={% url 'home' %}>
+                <img src="https://image.flaticon.com/icons/png/512/648/648537.png" alt="Книга рецептов" width="40px" height="40px">
+            &nbsp;Книга рецептов
+            </a>
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href={% url 'home' %}>Главная</a>
-                </li>
+
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href={% url 'recipes' %}>Рецепты</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href={% url 'recipes' %}>Категории</a>
+                    <a class="nav-link active" aria-current="page" href={% url 'add' %}>Добавить рецепт</a>
                 </li>
             </ul>
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
+            <form class="d-flex" action="{% url 'recipes' %}">
+                <input class="form-control me-2" type="search" placeholder="Найти" aria-label="Найти", name="search">
+                <button class="btn btn-outline-success" type="submit">Найти</button>
             </form>
         </div>
     </div>
